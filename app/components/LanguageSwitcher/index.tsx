@@ -3,19 +3,21 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Globe } from "lucide-react";
+import { languages } from "@/app/data/navigation/languages";
+
+interface Language {
+  code: string;
+  name: string;
+}
 
 export default function LanguageSwitcher() {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const languages = [
-    { code: "en", name: t("languages.en") },
-    { code: "zh", name: t("languages.zh") },
-    { code: "pt", name: t("languages.pt") },
-    { code: "es", name: t("languages.es") },
-    { code: "fr", name: t("languages.fr") },
-    { code: "ja", name: t("languages.ja") },
-  ];
+  const availableLanguages = languages.map((lang: Language) => ({
+    code: lang.code,
+    name: t(`languages.${lang.code}`),
+  }));
 
   const handleLanguageChange = async (langCode: string) => {
     await i18n.changeLanguage(langCode);
@@ -33,14 +35,14 @@ export default function LanguageSwitcher() {
       >
         <Globe className="h-4 w-4" />
         <span>
-          {languages.find((lang) => lang.code === i18n.language)?.name ||
-            t("languages.en")}
+          {availableLanguages.find((lang) => lang.code === i18n.language)
+            ?.name || t("languages.en")}
         </span>
       </button>
 
       {isOpen && (
         <div className="absolute bottom-full left-0 mb-2 w-40 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800 py-2">
-          {languages.map((lang) => (
+          {availableLanguages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
