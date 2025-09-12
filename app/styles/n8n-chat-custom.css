@@ -1,0 +1,13 @@
+.chat-window-toggle svg {
+  display: none !important;
+}
+
+.chat-button-wrapper {
+  display: block !important;
+  pointer-events: auto !important;
+}
+
+.chat-button-wrapper svg {
+  display: block !important;
+  cursor: pointer;
+}
