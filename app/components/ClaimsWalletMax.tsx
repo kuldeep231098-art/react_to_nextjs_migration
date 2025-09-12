@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Header } from "../components/Header";
+
 import ChatBubble from "../components/ChatBubble";
 import {
   Shield,
@@ -72,6 +72,7 @@ import { HelpSidebarBase } from "../components/HelpSidebarBase";
 import { claimsWalletPlusHelp } from "../data/pageHelpContent";
 import { PageHelpButton } from "../components/PageHelpButton";
 import { ClaimsWalletCardPlus } from "../components/ClaimsWalletCardPlus";
+import { Header } from "./Header";
 
 const validateTransaction = (
   amount: number,

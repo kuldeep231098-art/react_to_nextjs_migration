@@ -1,5 +1,5 @@
 import React from "react";
-import LanguageSwitcher from "./LanguageSwitcher";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 export function Footer() {
   return (

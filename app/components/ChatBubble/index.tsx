@@ -1,9 +1,8 @@
 "use client";
 
-// Handled through CSS instead of customStyles { useEffect } from "react";
 import "@n8n/chat/style.css";
-import "../styles/n8n-chat-custom.css";
-import { ChatBubbleIcon } from "./ChatBubbleIcon";
+import "../../styles/n8n-chat-custom.css";
+import { ChatBubbleIcon } from "../ChatBubbleIcon";
 
 export default function ChatBubble() {
   return (
