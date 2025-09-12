@@ -26,8 +26,8 @@ export interface ResizeHandleProps {
 }
 
 export interface SidebarHeaderProps {
-  title: string;
-  onClose: () => void;
+  title?: string;
+  onClose?: () => void;
 }
 
 export interface SidebarContentProps {

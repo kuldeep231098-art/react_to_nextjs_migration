@@ -13,17 +13,7 @@ import {
   Menu,
   Wallet,
   X,
-  LucideIcon,
 } from "lucide-react";
-
-interface MenuItem {
-  title: string;
-  description: string;
-  icon: typeof Building2;
-  href: string;
-  divider?: boolean;
-  isSummary?: boolean;
-}
 
 export function Header() {
   const [isPaymentSolutionsOpen, setIsPaymentSolutionsOpen] = useState(false);
@@ -142,7 +132,6 @@ export function Header() {
     <header className="bg-white shadow-sm border-b border-gray-200 dark:border-gray-700">
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
               <Image
@@ -155,8 +144,7 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden sm:flex items-center mx-auto gap-6">
             <div className="relative">
               <button
                 onClick={() =>
@@ -169,7 +157,7 @@ export function Header() {
 
               {/* Payment Solutions Dropdown */}
               {isPaymentSolutionsOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-screen max-w-6xl bg-white rounded-lg shadow-lg border border-gray-200 grid grid-cols-3 gap-6 p-6">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-screen max-w-6xl bg-white rounded-lg shadow-lg border border-gray-200 grid grid-cols-3 gap-6 p-6 z-20">
                   {paymentSolutionsCategories.map((category, index) => (
                     <div key={index} className="space-y-4">
                       <div>
@@ -194,7 +182,7 @@ export function Header() {
                             <div className="flex items-start gap-3">
                               <div className="flex-shrink-0 mt-1">
                                 <span className="text-gray-400">
-                                  <item.icon width={20} height={20} />
+                                  {/* <item.icon width={20} height={20} /> */}
                                 </span>
                               </div>
                               <div>
@@ -229,8 +217,7 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
+          <div className="sm:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-gray-600 hover:text-gray-900"
@@ -245,7 +232,6 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200">
           <div className="container mx-auto px-4 py-4 space-y-4">

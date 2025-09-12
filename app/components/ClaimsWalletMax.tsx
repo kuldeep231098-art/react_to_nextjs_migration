@@ -316,9 +316,7 @@ export function ClaimsWalletMax() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F7F9FF] dark:bg-gray-950">
-      <Header />
-
-      <main className="flex-grow pt-24">
+      <main className="flex-grow">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl mx-auto text-center mb-14">
             <div className="mb-8 flex justify-center">

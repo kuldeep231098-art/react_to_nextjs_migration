@@ -116,13 +116,7 @@ export function HelpSidebarBase({
             key="sidebar"
           >
             <ResizeHandle onMouseDown={handleMouseDown} />
-            <SidebarHeader
-              width={width}
-              minWidth={SIDEBAR_DIMENSIONS.MIN_WIDTH}
-              maxWidth={SIDEBAR_DIMENSIONS.MAX_WIDTH}
-              setWidth={setWidth}
-              onClose={onClose}
-            />
+            <SidebarHeader onClose={onClose} />
             <SidebarContent content={content} />
             <SidebarFooter />
           </motion.div>

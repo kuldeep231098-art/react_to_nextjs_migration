@@ -1,6 +1,28 @@
 .chat-window-toggle svg {
   display: none !important;
 }
+.st0,
+.st1 {
+  fill: none;
+}
+.st2 {
+  fill: #f7f9ff;
+}
+.st3 {
+  fill: #fff;
+  stroke-width: 5px;
+}
+.st3,
+.st1 {
+  stroke: #017bfd;
+  stroke-linejoin: round;
+}
+.st4 {
+  fill: #017bfd;
+}
+.st1 {
+  stroke-width: 6px;
+}
 
 .chat-button-wrapper {
   display: block !important;
