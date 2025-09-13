@@ -389,7 +389,9 @@ export function ClaimsWalletMax() {
                       <div className="p-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
                         <CreditCard className="h-6 w-6" />
                       </div>
-                      <h3 className="text-xl font-bold">Virtual Mastercard</h3>
+                      <h3 className="text-xl font-bold dark:text-white">
+                        Virtual Mastercard
+                      </h3>
                       <div className="ml-auto">
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
                           INSTANT
@@ -401,7 +403,7 @@ export function ClaimsWalletMax() {
                       that can be used anywhere online or added to your mobile
                       wallet.
                     </p>
-                    <div className="flex items-center text-blue-600">
+                    <div className="flex items-center text-blue-600 dark:text-blue-400">
                       <span className="font-medium">Select Virtual Card</span>
                       <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
                     </div>
@@ -449,17 +451,19 @@ export function ClaimsWalletMax() {
                       >
                         <method.icon className="h-5 w-5" />
                       </div>
-                      <h3 className="font-bold">{method.name}</h3>
+                      <h3 className="font-bold dark:text-white">
+                        {method.name}
+                      </h3>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
                       {method.description}
                     </p>
                     <div className="mt-auto flex items-center justify-between">
-                      <span className="text-xs text-gray-500 flex items-center gap-1">
+                      <span className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
                         <Clock className="h-3 w-3" />
                         {method.timeframe}
                       </span>
-                      <span className="text-blue-600 flex items-center text-sm">
+                      <span className="text-blue-600 dark:text-blue-400 flex items-center text-sm">
                         <span>Select</span>
                         <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" />
                       </span>
@@ -475,17 +479,28 @@ export function ClaimsWalletMax() {
 
           <div className="max-w-5xl mx-auto mb-16">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold mb-6">Recent Transactions</h2>
-
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">
+                Recent Transactions
+              </h2>{" "}
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200 dark:border-gray-700">
-                      <th className="text-left py-4 px-4">Date</th>
-                      <th className="text-left py-4 px-4">Description</th>
-                      <th className="text-left py-4 px-4">Amount</th>
-                      <th className="text-left py-4 px-4">Status</th>
-                      <th className="text-left py-4 px-4">Method</th>
+                      <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
+                        Date
+                      </th>
+                      <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
+                        Description
+                      </th>
+                      <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
+                        Amount
+                      </th>
+                      <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
+                        Status
+                      </th>
+                      <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
+                        Method
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -493,7 +508,7 @@ export function ClaimsWalletMax() {
                       <tr className="border-b border-gray-200 dark:border-gray-700">
                         <td
                           colSpan={5}
-                          className="py-4 px-4 text-center text-gray-500"
+                          className="py-4 px-4 text-center text-gray-500 dark:text-gray-400"
                         >
                           No transactions to display
                         </td>
@@ -504,7 +519,7 @@ export function ClaimsWalletMax() {
                           key={transaction.id}
                           className="border-b border-gray-200 dark:border-gray-700"
                         >
-                          <td className="py-4 px-4">
+                          <td className="py-4 px-4 text-gray-900 dark:text-gray-100">
                             {new Date(transaction.date).toLocaleDateString(
                               undefined,
                               {
@@ -518,9 +533,11 @@ export function ClaimsWalletMax() {
                           </td>
                           <td className="py-4 px-4">
                             <div className="flex flex-col">
-                              <span>{transaction.description}</span>
+                              <span className="text-gray-900 dark:text-gray-100">
+                                {transaction.description}
+                              </span>
                               {transaction.reference && (
-                                <span className="text-xs text-gray-500">
+                                <span className="text-xs text-gray-500 dark:text-gray-400">
                                   Ref: {transaction.reference}
                                 </span>
                               )}
@@ -530,8 +547,8 @@ export function ClaimsWalletMax() {
                             <span
                               className={
                                 transaction.type === TransactionType.WITHDRAWAL
-                                  ? "text-red-600"
-                                  : "text-green-600"
+                                  ? "text-red-600 dark:text-red-400"
+                                  : "text-green-600 dark:text-green-400"
                               }
                             >
                               $
@@ -564,15 +581,17 @@ export function ClaimsWalletMax() {
                             <div className="flex items-center gap-2">
                               {transaction.method ===
                                 PaymentMethod.VIRTUAL_CARD && (
-                                <CreditCard className="h-4 w-4" />
+                                <CreditCard className="h-4 w-4 text-gray-600 dark:text-gray-400" />
                               )}
                               {transaction.method === PaymentMethod.ACH && (
-                                <Landmark className="h-4 w-4" />
+                                <Landmark className="h-4 w-4 text-gray-600 dark:text-gray-400" />
                               )}
                               {transaction.method === PaymentMethod.CHECK && (
-                                <MailCheck className="h-4 w-4" />
+                                <MailCheck className="h-4 w-4 text-gray-600 dark:text-gray-400" />
                               )}
-                              <span>{transaction.method}</span>
+                              <span className="text-gray-900 dark:text-gray-100">
+                                {transaction.method}
+                              </span>
                             </div>
                           </td>
                         </tr>
@@ -591,7 +610,9 @@ export function ClaimsWalletMax() {
                 <div className="inline-flex p-3 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-4">
                   <Shield className="h-6 w-6" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Secure Access</h3>
+                <h3 className="text-lg font-semibold mb-2 dark:text-white">
+                  Secure Access
+                </h3>
                 <p className="text-gray-600 dark:text-gray-400">
                   Bank-grade security protecting your virtual card details
                 </p>
@@ -601,7 +622,7 @@ export function ClaimsWalletMax() {
                 <div className="inline-flex p-3 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-4">
                   <Globe className="h-6 w-6" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">
+                <h3 className="text-lg font-semibold mb-2 dark:text-white">
                   Global Acceptance
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
@@ -613,7 +634,7 @@ export function ClaimsWalletMax() {
                 <div className="inline-flex p-3 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 mb-4">
                   <Clock className="h-6 w-6" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">
+                <h3 className="text-lg font-semibold mb-2 dark:text-white">
                   Real-time Updates
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
@@ -643,7 +664,9 @@ export function ClaimsWalletMax() {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
                 <KeyRound className="h-6 w-6 text-blue-600" />
-                <h3 className="text-xl font-bold">Verify Identity</h3>
+                <h3 className="text-xl font-bold dark:text-white">
+                  Verify Identity
+                </h3>
               </div>
               <button
                 onClick={() => {
@@ -800,18 +823,18 @@ export function ClaimsWalletMax() {
                           <div className="text-sm text-gray-600 dark:text-gray-400">
                             Available Balance
                           </div>
-                          <div className="text-xl font-bold">
+                          <div className="text-xl font-bold dark:text-white">
                             ${walletData.balance.toLocaleString()}
                           </div>
                         </div>
                       </div>
 
                       <div className="mb-6">
-                        <label className="block text-sm font-medium mb-2">
+                        <label className="block text-sm font-medium mb-2 dark:text-white">
                           Transfer Amount
                         </label>
                         <div className="relative">
-                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+                          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
                             $
                           </span>
                           <input
@@ -830,7 +853,7 @@ export function ClaimsWalletMax() {
                       {modalPaymentMethod === paymentMethods[2].name && (
                         <div className="space-y-4 mb-6">
                           <div>
-                            <label className="block text-sm font-medium mb-2">
+                            <label className="block text-sm font-medium mb-2 dark:text-white">
                               Bank Name
                             </label>
                             <input
@@ -841,7 +864,7 @@ export function ClaimsWalletMax() {
                           </div>
                           <div className="grid grid-cols-2 gap-4">
                             <div>
-                              <label className="block text-sm font-medium mb-2">
+                              <label className="block text-sm font-medium mb-2 dark:text-white">
                                 Routing Number
                               </label>
                               <input
@@ -851,7 +874,7 @@ export function ClaimsWalletMax() {
                               />
                             </div>
                             <div>
-                              <label className="block text-sm font-medium mb-2">
+                              <label className="block text-sm font-medium mb-2 dark:text-white">
                                 Account Number
                               </label>
                               <input
@@ -867,7 +890,7 @@ export function ClaimsWalletMax() {
                       {modalPaymentMethod === paymentMethods[1].name && (
                         <div className="space-y-4 mb-6">
                           <div>
-                            <label className="block text-sm font-medium mb-2">
+                            <label className="block text-sm font-medium mb-2 dark:text-white">
                               Card Number
                             </label>
                             <input
@@ -878,7 +901,7 @@ export function ClaimsWalletMax() {
                           </div>
                           <div className="grid grid-cols-2 gap-4">
                             <div>
-                              <label className="block text-sm font-medium mb-2">
+                              <label className="block text-sm font-medium mb-2 dark:text-white">
                                 Expiration Date
                               </label>
                               <input
@@ -888,7 +911,7 @@ export function ClaimsWalletMax() {
                               />
                             </div>
                             <div>
-                              <label className="block text-sm font-medium mb-2">
+                              <label className="block text-sm font-medium mb-2 dark:text-white">
                                 Zip Code
                               </label>
                               <input
@@ -904,7 +927,7 @@ export function ClaimsWalletMax() {
                       {modalPaymentMethod === paymentMethods[3].name && (
                         <div className="space-y-4 mb-6">
                           <div>
-                            <label className="block text-sm font-medium mb-2">
+                            <label className="block text-sm font-medium mb-2 dark:text-white">
                               Mailing Address
                             </label>
                             <textarea
@@ -964,7 +987,7 @@ export function ClaimsWalletMax() {
                       <Check className="h-8 w-8 text-green-600 dark:text-green-400" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-xl font-bold mb-2 dark:text-white">
                     Transfer Successful!
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">

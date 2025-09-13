@@ -97,7 +97,7 @@ export function HelpSidebarBase({
       {isOpen && (
         <>
           <motion.div
-            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm z-40"
             initial="closed"
             animate="open"
             exit="closed"

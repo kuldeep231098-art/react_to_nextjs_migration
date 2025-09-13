@@ -5,11 +5,11 @@ export const SidebarHeader: React.FC<SidebarHeaderProps> = ({
   onClose,
   title,
 }) => (
-  <div className="flex items-center justify-between p-4 border-b border-gray-300">
-    <h2 className="text-xl font-semibold">{title}</h2>
+  <div className="flex items-center justify-between p-4 border-b border-gray-300 dark:border-gray-700">
+    <h2 className="text-xl font-semibold dark:text-white">{title}</h2>
     <button
       onClick={onClose}
-      className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+      className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors dark:text-gray-400 dark:hover:text-white"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

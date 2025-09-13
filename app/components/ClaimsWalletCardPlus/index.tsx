@@ -17,7 +17,7 @@ export function ClaimsWalletCardPlus({
 }: ClaimsWalletCardPlusProps) {
   return (
     <motion.div
-      className={`bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-xl p-7 text-white relative overflow-hidden ${className}`}
+      className={`bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 rounded-xl shadow-xl p-7 text-white relative overflow-hidden ${className}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -26,7 +26,7 @@ export function ClaimsWalletCardPlus({
         <div className="flex items-center gap-3">
           <Wallet className="h-10 w-10" />
           <div>
-            <h2 className="text-3xl font-bold text-transparent bg-gradient-to-r from-[#00adee] to-[#4827D0] bg-clip-text">
+            <h2 className="text-3xl font-bold text-transparent bg-gradient-to-r from-[#00adee] to-[#4827D0] dark:from-[#40c9ff] dark:to-[#6a5cff] bg-clip-text">
               Your Claims Wallet
             </h2>
             <p className="text-white/80">Claim #{claimNumber}</p>
@@ -34,7 +34,7 @@ export function ClaimsWalletCardPlus({
         </div>
         <button
           onClick={onRefresh}
-          className="px-6 py-3 bg-white/20 hover:bg-white/30 rounded-lg transition-colors font-medium flex items-center gap-2 cursor-pointer"
+          className="px-6 py-3 bg-white/20 hover:bg-white/30 dark:bg-white/10 dark:hover:bg-white/20 rounded-lg transition-colors font-medium flex items-center gap-2 cursor-pointer"
         >
           <RefreshCw className="h-5 w-5" />
           <span>Refresh</span>
