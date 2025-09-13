@@ -6,9 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { paymentSolutionsCategories } from "@/app/data/navigation/paymentSolutions";
-import LanguageSwitcher from "../LanguageSwitcher";
-import ThemeToggle from "../ThemeToggle";
 import { useTranslation } from "react-i18next";
+import ThemeToggle from "../../ui/ThemeToggle";
+import LanguageSwitcher from "../../ui/LanguageSwitcher";
 
 export function Header() {
   const { t } = useTranslation();

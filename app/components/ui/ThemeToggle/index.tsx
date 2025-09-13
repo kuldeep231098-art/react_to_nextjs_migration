@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
-import { cn } from "../../lib/utils";
 import { useTranslation } from "react-i18next";
+import { cn } from "@/app/utils/utils";
 
 interface ThemeToggleProps {
   className?: string;

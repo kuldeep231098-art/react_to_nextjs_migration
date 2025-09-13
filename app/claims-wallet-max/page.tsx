@@ -2,8 +2,8 @@
 
 import { Suspense } from "react";
 import { ClaimsWalletMax } from "@/app/components/ClaimsWalletMax";
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
+import { Header } from "../components/layouts/Header";
+import { Footer } from "../components/layouts/Footer";
 
 export default function ClaimsWalletMaxPage() {
   return (

@@ -70,9 +70,8 @@ const STORAGE_KEYS = {
 };
 import { HelpSidebarBase } from "../components/HelpSidebarBase";
 import { claimsWalletPlusHelp } from "../data/pageHelpContent";
-import { PageHelpButton } from "../components/PageHelpButton";
 import { ClaimsWalletCardPlus } from "../components/ClaimsWalletCardPlus";
-import { Header } from "./Header";
+import { PageHelpButton } from "./ui/PageHelpButton";
 
 const validateTransaction = (
   amount: number,
