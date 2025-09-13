@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/app/utils/utils";
+import { useTheme } from "next-themes";
 
 interface ThemeToggleProps {
   className?: string;
@@ -11,14 +12,8 @@ interface ThemeToggleProps {
 
 export default function ThemeToggle({ className }: ThemeToggleProps) {
   const { t } = useTranslation();
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const { theme, setTheme } = useTheme();
   const [isChanging, setIsChanging] = useState(false);
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove("light", "dark");
-    root.classList.add(theme);
-  }, [theme]);
 
   const handleThemeChange = () => {
     setIsChanging(true);
@@ -28,9 +23,10 @@ export default function ThemeToggle({ className }: ThemeToggleProps) {
 
   return (
     <button
+      type="button"
       onClick={handleThemeChange}
       className={cn(
-        "relative w-6 h-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50",
+        "relative w-6 h-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 cursor-pointer",
         isChanging && "pointer-events-none",
         className
       )}
