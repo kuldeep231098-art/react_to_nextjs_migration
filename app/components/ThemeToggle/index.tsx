@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "../../lib/utils";
+import { useTranslation } from "react-i18next";
 
 interface ThemeToggleProps {
   className?: string;
 }
 
 export default function ThemeToggle({ className }: ThemeToggleProps) {
+  const { t } = useTranslation();
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [isChanging, setIsChanging] = useState(false);
 
@@ -32,7 +34,7 @@ export default function ThemeToggle({ className }: ThemeToggleProps) {
         isChanging && "pointer-events-none",
         className
       )}
-      aria-label="Toggle theme"
+      aria-label={t("buttons.switch_theme")}
       disabled={isChanging}
     >
       <Sun className="absolute inset-0 h-full w-full transition-all duration-300 opacity-100 rotate-0 dark:opacity-0 dark:-rotate-90" />

@@ -14,16 +14,23 @@ export default function LanguageSwitcher() {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const availableLanguages = languages.map((lang: Language) => ({
-    code: lang.code,
-    name: t(`languages.${lang.code}`),
-  }));
+  const availableLanguages = languages;
 
   const handleLanguageChange = async (langCode: string) => {
-    await i18n.changeLanguage(langCode);
-    localStorage.setItem("preferredLanguage", langCode);
-    setIsOpen(false);
-    window.location.reload();
+    try {
+      console.log("Changing language to:", langCode);
+      await i18n.changeLanguage(langCode);
+      console.log("Language changed successfully");
+      console.log("Current language:", i18n.language);
+      console.log("Available languages:", i18n.languages);
+      console.log("Current namespace:", i18n.options.defaultNS);
+      console.log("Translation test:", t("header.menu.payment_solutions"));
+
+      localStorage.setItem("preferredLanguage", langCode);
+      setIsOpen(false);
+    } catch (error) {
+      console.error("Failed to change language:", error);
+    }
   };
 
   return (
@@ -31,17 +38,14 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         onBlur={() => setTimeout(() => setIsOpen(false), 200)}
-        className="flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900"
+        className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
       >
         <Globe className="h-4 w-4" />
-        <span>
-          {availableLanguages.find((lang) => lang.code === i18n.language)
-            ?.name || t("languages.en")}
-        </span>
+        <span>{t(`languages.${i18n.language}`) || "English"}</span>
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-full left-0 mb-2 w-40 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800 py-2">
+        <div className="absolute top-full right-0 mt-2 w-40 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800 py-2 z-50">
           {availableLanguages.map((lang) => (
             <button
               key={lang.code}
@@ -52,7 +56,7 @@ export default function LanguageSwitcher() {
                   : "text-gray-600 dark:text-gray-400"
               }`}
             >
-              {lang.name}
+              {t(`languages.${lang.code}`)}
             </button>
           ))}
         </div>
