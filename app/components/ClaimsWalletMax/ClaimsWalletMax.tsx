@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import ChatBubble from "../components/ChatBubble";
 import {
   Shield,
   Clock,
@@ -68,10 +67,11 @@ const STORAGE_KEYS = {
   WALLET_DATA: "claims-wallet-data",
   VIRTUAL_CARD: "claims-wallet-virtual-card",
 };
-import { HelpSidebarBase } from "../components/HelpSidebarBase";
-import { claimsWalletPlusHelp } from "../data/pageHelpContent";
-import { ClaimsWalletCardPlus } from "../components/ClaimsWalletCardPlus";
-import { PageHelpButton } from "./ui/PageHelpButton";
+import { claimsWalletPlusHelp } from "../../data/pageHelpContent";
+import { ClaimsWalletCardPlus } from "../ClaimsWalletCardPlus";
+import { PageHelpButton } from "../ui/PageHelpButton";
+import ChatBubble from "../ui/ChatBubble";
+import { HelpSidebarBase } from "../help/HelpSidebarBase/index";
 
 const validateTransaction = (
   amount: number,

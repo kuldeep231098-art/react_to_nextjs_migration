@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
-import { ClaimsWalletMax } from "@/app/components/ClaimsWalletMax";
+import { ClaimsWalletMax } from "@/app/components/ClaimsWalletMax/ClaimsWalletMax";
 import { Header } from "../components/layouts/Header";
 import { Footer } from "../components/layouts/Footer";
 
