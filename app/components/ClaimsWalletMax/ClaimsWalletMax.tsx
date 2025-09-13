@@ -778,7 +778,7 @@ export function ClaimsWalletMax() {
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
                       <Wallet className="h-6 w-6 text-blue-600" />
-                      <h3 className="text-xl font-bold">
+                      <h3 className="text-xl font-bold  dark:text-gray-100">
                         {transferInProgress
                           ? "Processing..."
                           : `Transfer to ${modalPaymentMethod}`}
@@ -842,7 +842,7 @@ export function ClaimsWalletMax() {
                             value={transferAmount}
                             onChange={(e) => setTransferAmount(e.target.value)}
                             placeholder="0.00"
-                            className="w-full pl-8 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 text-xl"
+                            className="w-full pl-8 pr-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 text-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
                             min="0.01"
                             max={walletData.balance}
                             step="0.01"
@@ -858,7 +858,7 @@ export function ClaimsWalletMax() {
                             </label>
                             <input
                               type="text"
-                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700"
+                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
                               placeholder="Enter bank name"
                             />
                           </div>
@@ -869,7 +869,7 @@ export function ClaimsWalletMax() {
                               </label>
                               <input
                                 type="text"
-                                className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700"
+                                className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
                                 placeholder="9 digits"
                               />
                             </div>
@@ -879,7 +879,7 @@ export function ClaimsWalletMax() {
                               </label>
                               <input
                                 type="text"
-                                className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700"
+                                className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
                                 placeholder="Account number"
                               />
                             </div>
@@ -895,7 +895,7 @@ export function ClaimsWalletMax() {
                             </label>
                             <input
                               type="text"
-                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700"
+                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
                               placeholder="Card number"
                             />
                           </div>
@@ -906,7 +906,7 @@ export function ClaimsWalletMax() {
                               </label>
                               <input
                                 type="text"
-                                className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700"
+                                className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
                                 placeholder="MM/YY"
                               />
                             </div>
@@ -916,7 +916,7 @@ export function ClaimsWalletMax() {
                               </label>
                               <input
                                 type="text"
-                                className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700"
+                                className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
                                 placeholder="Billing zip code"
                               />
                             </div>
@@ -931,7 +931,7 @@ export function ClaimsWalletMax() {
                               Mailing Address
                             </label>
                             <textarea
-                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700"
+                              className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
                               placeholder="Enter your mailing address"
                               rows={3}
                             />
