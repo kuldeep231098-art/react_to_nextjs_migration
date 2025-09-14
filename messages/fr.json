@@ -1,0 +1,340 @@
+{
+  "languages": {
+    "en": "Anglais",
+    "zh": "Chinois",
+    "pt": "Portugais",
+    "es": "Espagnol",
+    "fr": "Français",
+    "ja": "Japonais"
+  },
+  "header": {
+    "insurance": {
+      "link": {
+        "title": "Lien de paiement"
+      },
+      "partners": {
+        "title": "Paiements partenaires"
+      },
+      "claim": {
+        "title": "Paiement des réclamations"
+      }
+    },
+    "menu": {
+      "payment_solutions": "Solutions de paiement",
+      "faqs": "FAQs"
+    },
+    "navigation": {
+      "paymentSolutions": {
+        "categories": {
+          "incoming": {
+            "title": "Paiements Entrants",
+            "description": "Solutions pour traiter les paiements de primes et les achats de polices"
+          },
+          "outgoing": {
+            "title": "Paiements Sortants",
+            "description": "Solutions pour traiter les réclamations et les paiements aux bénéficiaires"
+          },
+          "domestic": {
+            "title": "Domestique et International",
+            "description": "Solutions pour traiter les paiements domestiques et mondiaux"
+          }
+        },
+        "items": {
+          "incomingPaymentsSummary": {
+            "title": "Résumé des Paiements Entrants",
+            "description": "Aperçu de nos solutions de paiements entrants"
+          },
+          "premiumPayAgent": {
+            "title": "Paiement de Prime - Agent",
+            "description": "Traiter les paiements de primes pour les agents d'assurance"
+          },
+          "premiumPayClient": {
+            "title": "Paiement de Prime - Client",
+            "description": "Payez votre prime d'assurance en toute sécurité et commodité"
+          },
+          "policyHub": {
+            "title": "Centre de Polices",
+            "description": "Accédez et gérez vos détails et documents de police"
+          },
+          "outgoingPaymentsSummary": {
+            "title": "Résumé des Paiements Sortants",
+            "description": "Aperçu de nos solutions de paiements sortants"
+          },
+          "payLink": {
+            "title": "Lien de Paiement",
+            "description": "Créer un lien de paiement unique avec des options personnalisables"
+          },
+          "payPartners": {
+            "title": "Paiement aux Partenaires",
+            "description": "Traiter les paiements aux partenaires, agents et fournisseurs de services"
+          },
+          "payClaims": {
+            "title": "Paiement de Réclamations",
+            "description": "Payez les réclamations instantanément avec des méthodes de paiement flexibles"
+          },
+          "domesticPaymentsSummary": {
+            "title": "Résumé des Paiements Domestiques",
+            "description": "Solutions de paiement pour les États-Unis"
+          },
+          "internationalPaymentsSummary": {
+            "title": "Résumé des Paiements Internationaux",
+            "description": "Solutions de paiement mondiales pour les transactions transfrontalières"
+          },
+          "virtualClaimsCard": {
+            "title": "Carte Virtuelle de Réclamations",
+            "description": "Émettre des cartes virtuelles instantanées pour les paiements de réclamations"
+          },
+          "claimsWalletSolutions": {
+            "title": "Solutions de Portefeuille de Réclamations",
+            "description": "Solutions de portefeuille numérique pour gérer les fonds de réclamations"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "FAQs",
+      "description": "Questions fréquemment posées"
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "learn": "Apprendre",
+    "examples": "Exemples",
+    "visit_site": "Visiter le site →",
+    "logo_alt": "Logo {name}",
+    "file_icon": "Icône de fichier",
+    "window_icon": "Icône de fenêtre",
+    "globe_icon": "Icône de globe",
+    "reference": "Référence: {ref}",
+    "no_transactions": "Aucune transaction trouvée",
+    "select": "Sélectionner"
+  },
+  "wallet": {
+    "balance": "Solde",
+    "send": "Envoyer",
+    "receive": "Recevoir",
+    "transfer": "Transférer",
+    "amount": "Montant",
+    "recipient": "Destinataire",
+    "status": {
+      "pending": "En attente",
+      "completed": "Terminé",
+      "failed": "Échoué"
+    },
+    "messages": {
+      "success": "Transaction réussie",
+      "error": "Transaction échouée",
+      "insufficient": "Solde insuffisant"
+    },
+    "virtual_card": {
+      "title": "Carte Virtuelle",
+      "instant": "Instantanément",
+      "description": "Effectuez des achats instantanés avec votre carte virtuelle",
+      "select": "Sélectionner le mode de paiement"
+    },
+    "transactions": {
+      "title": "Transactions Récentes",
+      "date": "Date",
+      "description": "Description",
+      "amount": "Montant",
+      "status": "Statut",
+      "method": "Méthode"
+    }
+  },
+  "payment": {
+    "methods": {
+      "card": "Carte",
+      "bank": "Virement bancaire",
+      "wallet": "Portefeuille numérique"
+    },
+    "status": {
+      "processing": "En cours",
+      "success": "Paiement réussi",
+      "failed": "Paiement échoué",
+      "sent_to": "${amount} a été envoyé vers votre {method}"
+    }
+  },
+  "errors": {
+    "required": "Ce champ est obligatoire",
+    "invalid": "Entrée invalide",
+    "minimum": "Montant minimum requis",
+    "maximum": "Montant maximum dépassé"
+  },
+  "pages": {
+    "home": {
+      "title": "Accueil",
+      "welcome": "Bienvenue sur Juice",
+      "getStarted": "Commencer"
+    },
+    "claims": {
+      "title": "Réclamations",
+      "subtitle": "Gérer vos réclamations",
+      "new": "Nouvelle réclamation",
+      "history": "Historique des réclamations",
+      "claimWalletMax": "Claims Wallet Max",
+      "claimWalletMaxDesc": "Gérez efficacement vos paiements de réclamations avec notre solution de portefeuille numérique"
+    }
+  },
+  "branding": {
+    "full_name": "Juice Payments"
+  },
+  "claimsWalletMax": {
+    "title": "Claims Wallet Max",
+    "description": "Accédez à vos fonds instantanément et choisissez comment vous souhaitez recevoir votre paiement. Fonctionnalités améliorées avec une flexibilité maximale.",
+    "cardPlus": {
+      "title": "Votre Portefeuille de Réclamations",
+      "claimNumber": "Réclamation #{number}",
+      "refresh": "Actualiser",
+      "availableBalance": "Solde Disponible",
+      "fundsReady": "Fonds prêts pour utilisation immédiate"
+    },
+    "paymentMethods": {
+      "virtualCard": {
+        "name": "Carte Virtuelle",
+        "description": "Accès instantané aux fonds avec Mastercard",
+        "timeframe": "Instantané",
+        "select": "Sélectionner Carte Virtuelle"
+      },
+      "directCard": {
+        "name": "Direct vers Visa/Mastercard",
+        "description": "Envoyer de l'argent vers votre carte de crédit ou débit existante",
+        "timeframe": "10-30 minutes"
+      },
+      "ach": {
+        "name": "ACH vers la Banque",
+        "description": "Transfert direct vers votre compte bancaire",
+        "timeframe": "1-3 jours ouvrables"
+      },
+      "check": {
+        "name": "eChèque",
+        "description": "Chèque traditionnel envoyé à votre adresse postale",
+        "timeframe": "5-7 jours ouvrables"
+      }
+    },
+    "otp": {
+      "errors": {
+        "invalidLength": "Veuillez saisir un code à 6 chiffres",
+        "invalidCode": "Code de vérification invalide"
+      }
+    },
+    "validation": {
+      "invalidAmount": "Veuillez saisir un montant valide",
+      "insufficientBalance": "Solde insuffisant"
+    },
+    "transactions": {
+      "withdrawal": "Retrait",
+      "deposit": "Dépôt"
+    },
+    "features": {
+      "secure": {
+        "title": "Accès Sécurisé",
+        "description": "Sécurité de niveau bancaire protégeant les détails de votre carte virtuelle"
+      },
+      "global": {
+        "title": "Acceptation Mondiale",
+        "description": "Utilisez votre carte virtuelle partout où Mastercard est acceptée"
+      },
+      "realtime": {
+        "title": "Mises à jour en Temps Réel",
+        "description": "Suivez les transactions et mises à jour de solde instantanément"
+      }
+    },
+    "transactionTable": {
+      "title": "Transactions Récentes",
+      "headers": {
+        "date": "Date",
+        "description": "Description",
+        "amount": "Montant",
+        "status": "Statut",
+        "method": "Méthode"
+      },
+      "noTransactions": "Aucune transaction à afficher",
+      "reference": "Réf: {ref}"
+    },
+    "transferModal": {
+      "processing": "Traitement en cours...",
+      "transferTo": "Transférer vers {method}",
+      "transferringFunds": "Transfert des fonds vers votre {method}...",
+      "availableBalance": "Solde Disponible",
+      "transferAmount": "Montant du Transfert",
+      "transferSuccess": "Transfert Réussi !",
+      "secureTransfer": "Transfert sécurisé et crypté",
+      "transferFunds": "Transférer les Fonds",
+      "close": "Fermer",
+      "successMessage": "${amount} a été envoyé à votre {method}.",
+      "bankDetails": {
+        "bankName": "Nom de la Banque",
+        "bankNamePlaceholder": "Entrez le nom de la banque",
+        "routingNumber": "Numéro de Routage",
+        "routingNumberPlaceholder": "9 chiffres",
+        "accountNumber": "Numéro de Compte",
+        "accountNumberPlaceholder": "Numéro de compte"
+      },
+      "cardDetails": {
+        "cardNumber": "Numéro de Carte",
+        "cardNumberPlaceholder": "Numéro de carte",
+        "expirationDate": "Date d'Expiration",
+        "expirationDatePlaceholder": "MM/AA",
+        "zipCode": "Code Postal",
+        "zipCodePlaceholder": "Code postal de facturation"
+      },
+      "mailingAddress": "Adresse de Correspondance",
+      "mailingAddressPlaceholder": "Entrez votre adresse de correspondance",
+      "paymentMethods": {
+        "virtualCard": {
+          "name": "Carte Virtuelle",
+          "timeframe": "Disponible immédiatement"
+        },
+        "directCard": {
+          "name": "Direct vers Visa/Mastercard",
+          "timeframe": "Prend généralement 10-30 minutes"
+        },
+        "ach": {
+          "name": "ACH vers la Banque",
+          "timeframe": "Temps de traitement: 1-3 jours ouvrables"
+        },
+        "check": {
+          "name": "eChèque",
+          "timeframe": "Délai de livraison: 5-7 jours ouvrables"
+        }
+      }
+    },
+    "otpModal": {
+      "title": "Vérifier l'Identité",
+      "description": "Pour votre sécurité, veuillez saisir le code de vérification à 6 chiffres envoyé à votre numéro de téléphone enregistré.",
+      "placeholder": "Saisir le code à 6 chiffres",
+      "verifyButton": "Vérifier le Code",
+      "resendCode": "Renvoyer le Code",
+      "termsAcceptance": "J'accepte les",
+      "termsLink": "Conditions Générales du Porteur de Carte"
+    }
+  },
+  "footer": {
+    "bankingDisclaimer": "Juice n'est pas une banque. Les services bancaires sont fournis par First Century Bank, N.A., Membre FDIC, conformément à une licence de Mastercard International.",
+    "customerService": "Pour le service client, veuillez appeler Juice: (855)-687-2114.",
+    "links": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "cookies": "Politique des Cookies",
+      "sitemap": "Plan du Site"
+    },
+    "copyright": "© 2025 Juice Financial. Tous droits réservés. Juice Insurance v1.3.0"
+  },
+  "help": {
+    "title": "Aide et Support",
+    "keyFeatures": "Fonctionnalités Clés",
+    "footerText": "Pour des informations plus détaillées, veuillez consulter notre documentation."
+  },
+  "ui": {
+    "info": "INFO",
+    "switchTheme": "Changer le thème"
+  }
+}

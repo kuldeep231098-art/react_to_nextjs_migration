@@ -1,0 +1,318 @@
+{
+  "branding": {
+    "name": "Juice",
+    "full_name": "Juice金融",
+    "tagline": "即时访问您的资金，自由选择接收付款方式。增强功能，最大灵活性。",
+    "company_info": "Juice不是银行。银行服务由First Century Bank, N.A.提供，FDIC成员，根据Mastercard International的许可。",
+    "customer_service": "客户服务请致电Juice：(855)-687-2114。",
+    "version": "Juice保险 v1.3.0",
+    "copyright": "© 2025 Juice金融。保留所有权利。"
+  },
+  "languages": {
+    "en": "English",
+    "zh": "中文",
+    "pt": "Português",
+    "es": "Español",
+    "fr": "Français",
+    "ja": "日本語"
+  },
+  "header": {
+    "insurance": {
+      "link": {
+        "title": "付款链接"
+      },
+      "partners": {
+        "title": "合作伙伴付款"
+      },
+      "claim": {
+        "title": "理赔付款"
+      }
+    },
+    "menu": {
+      "payment_solutions": "付款解决方案",
+      "faqs": "常见问题"
+    },
+    "navigation": {
+      "paymentSolutions": {
+        "categories": {
+          "incoming": {
+            "title": "收款",
+            "description": "处理保险费支付和保单购买的解决方案"
+          },
+          "outgoing": {
+            "title": "付款",
+            "description": "处理理赔和受益人支付的解决方案"
+          },
+          "domestic": {
+            "title": "国内和国际",
+            "description": "处理国内和全球支付的解决方案"
+          }
+        },
+        "items": {
+          "incomingPaymentsSummary": {
+            "title": "收款概述",
+            "description": "我们收款解决方案的概览"
+          },
+          "premiumPayAgent": {
+            "title": "保费支付 - 代理",
+            "description": "为保险代理处理保费支付"
+          },
+          "premiumPayClient": {
+            "title": "保费支付 - 客户",
+            "description": "安全便捷地支付您的保险费"
+          },
+          "policyHub": {
+            "title": "保单中心",
+            "description": "访问和管理您的保单详情和文件"
+          },
+          "outgoingPaymentsSummary": {
+            "title": "付款概述",
+            "description": "我们付款解决方案的概览"
+          },
+          "payLink": {
+            "title": "支付链接",
+            "description": "创建具有可定制选项的一次性支付链接"
+          },
+          "payPartners": {
+            "title": "支付合作伙伴",
+            "description": "向合作伙伴、代理和服务提供商处理支付"
+          },
+          "payClaims": {
+            "title": "理赔支付",
+            "description": "使用灵活的支付方式即时支付理赔"
+          },
+          "domesticPaymentsSummary": {
+            "title": "国内支付概述",
+            "description": "美国支付解决方案"
+          },
+          "internationalPaymentsSummary": {
+            "title": "国际支付概述",
+            "description": "跨境交易的全球支付解决方案"
+          },
+          "virtualClaimsCard": {
+            "title": "虚拟理赔卡",
+            "description": "为理赔支付发放即时虚拟卡"
+          },
+          "claimsWalletSolutions": {
+            "title": "理赔钱包解决方案",
+            "description": "管理理赔资金的数字钱包解决方案"
+          }
+        }
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "description": "常见问题解答"
+    }
+  },
+  "wallet": {
+    "available_balance": "可用余额",
+    "funds_ready": "资金可立即使用",
+    "claim_number": "理赔号 #CLM-2024-0078",
+    "refresh": "刷新",
+    "virtual_card": {
+      "title": "虚拟万事达卡",
+      "description": "立即获取可在线使用或添加到移动钱包的虚拟万事达卡。",
+      "select": "选择虚拟卡",
+      "instant": "即时"
+    },
+    "payment_methods": {
+      "direct_card": {
+        "title": "直接转入Visa/万事达卡",
+        "description": "转账至您现有的信用卡或借记卡",
+        "timeframe": "10-30分钟"
+      },
+      "ach": {
+        "title": "ACH银行转账",
+        "description": "直接转账至您的银行账户",
+        "timeframe": "1-3个工作日"
+      },
+      "echeck": {
+        "title": "电子支票",
+        "description": "传统支票寄送至您的邮寄地址",
+        "timeframe": "5-7个工作日"
+      }
+    },
+    "features": {
+      "secure_access": {
+        "title": "安全访问",
+        "description": "银行级别安全保护您的虚拟卡详情"
+      },
+      "global_acceptance": {
+        "title": "全球通用",
+        "description": "您的虚拟卡可在任何接受万事达卡的地方使用"
+      },
+      "real_time_updates": {
+        "title": "实时更新",
+        "description": "即时跟踪交易和余额更新"
+      }
+    },
+    "transactions": {
+      "title": "近期交易",
+      "date": "日期",
+      "description": "说明",
+      "amount": "金额",
+      "status": "状态",
+      "method": "方式",
+      "ref": "参考号"
+    },
+    "select": "选择"
+  },
+  "footer": {
+    "bankingDisclaimer": "Juice不是银行。银行服务由First Century Bank, N.A.（FDIC成员）根据万事达国际许可证提供。",
+    "customerService": "如需客户服务，请致电Juice：(855)-687-2114。",
+    "links": {
+      "privacy": "隐私政策",
+      "terms": "服务条款",
+      "cookies": "Cookie政策",
+      "sitemap": "网站地图"
+    },
+    "copyright": "© 2025 Juice Financial。保留所有权利。Juice Insurance v1.3.0"
+  },
+  "pages": {
+    "claims_wallet_max": {
+      "title": "理赔钱包Max",
+      "your_wallet": "您的理赔钱包"
+    }
+  },
+  "claimsWalletMax": {
+    "title": "Claims Wallet Max",
+    "description": "即时访问您的资金，选择您想要的付款方式。增强功能，最大灵活性。",
+    "cardPlus": {
+      "title": "您的理赔钱包",
+      "claimNumber": "理赔 #{number}",
+      "refresh": "刷新",
+      "availableBalance": "可用余额",
+      "fundsReady": "资金可立即使用"
+    },
+    "paymentMethods": {
+      "virtualCard": {
+        "name": "虚拟卡",
+        "description": "通过万事达卡即时访问资金",
+        "timeframe": "即时",
+        "select": "选择虚拟卡"
+      },
+      "directCard": {
+        "name": "直接到Visa/万事达卡",
+        "description": "将资金发送到您现有的信用卡或借记卡",
+        "timeframe": "10-30分钟"
+      },
+      "ach": {
+        "name": "ACH到银行",
+        "description": "直接转账到您的银行账户",
+        "timeframe": "1-3个工作日"
+      },
+      "check": {
+        "name": "电子支票",
+        "description": "传统支票邮寄到您的地址",
+        "timeframe": "5-7个工作日"
+      }
+    },
+    "otp": {
+      "errors": {
+        "invalidLength": "请输入6位数字代码",
+        "invalidCode": "验证码无效"
+      }
+    },
+    "validation": {
+      "invalidAmount": "请输入有效金额",
+      "insufficientBalance": "余额不足"
+    },
+    "transactions": {
+      "withdrawal": "提取",
+      "deposit": "存款"
+    },
+    "features": {
+      "secure": {
+        "title": "安全访问",
+        "description": "银行级安全保护您的虚拟卡详细信息"
+      },
+      "global": {
+        "title": "全球接受",
+        "description": "在任何接受万事达卡的地方使用您的虚拟卡"
+      },
+      "realtime": {
+        "title": "实时更新",
+        "description": "即时跟踪交易和余额更新"
+      }
+    },
+    "transactionTable": {
+      "title": "最近交易",
+      "headers": {
+        "date": "日期",
+        "description": "说明",
+        "amount": "金额",
+        "status": "状态",
+        "method": "方式"
+      },
+      "noTransactions": "没有要显示的交易",
+      "reference": "参考：{ref}"
+    },
+    "transferModal": {
+      "processing": "处理中...",
+      "transferTo": "转账到{method}",
+      "transferringFunds": "正在将资金转账到您的{method}...",
+      "availableBalance": "可用余额",
+      "transferAmount": "转账金额",
+      "transferSuccess": "转账成功！",
+      "secureTransfer": "安全加密转账",
+      "transferFunds": "转账资金",
+      "close": "关闭",
+      "successMessage": "${amount}已发送至您的{method}。",
+      "bankDetails": {
+        "bankName": "银行名称",
+        "bankNamePlaceholder": "请输入银行名称",
+        "routingNumber": "路由号码",
+        "routingNumberPlaceholder": "9位数字",
+        "accountNumber": "账户号码",
+        "accountNumberPlaceholder": "账户号码"
+      },
+      "cardDetails": {
+        "cardNumber": "卡号",
+        "cardNumberPlaceholder": "卡号",
+        "expirationDate": "有效期",
+        "expirationDatePlaceholder": "MM/YY",
+        "zipCode": "邮政编码",
+        "zipCodePlaceholder": "账单邮政编码"
+      },
+      "mailingAddress": "邮寄地址",
+      "mailingAddressPlaceholder": "请输入您的邮寄地址",
+      "paymentMethods": {
+        "virtualCard": {
+          "name": "虚拟卡",
+          "timeframe": "立即可用"
+        },
+        "directCard": {
+          "name": "直接到Visa/万事达卡",
+          "timeframe": "通常需要10-30分钟"
+        },
+        "ach": {
+          "name": "ACH到银行",
+          "timeframe": "处理时间：1-3个工作日"
+        },
+        "check": {
+          "name": "电子支票",
+          "timeframe": "交付时间：5-7个工作日"
+        }
+      }
+    },
+    "otpModal": {
+      "title": "验证身份",
+      "description": "为了您的安全，请输入发送到您注册手机号码的6位验证码。",
+      "placeholder": "输入6位代码",
+      "verifyButton": "验证代码",
+      "resendCode": "重发代码",
+      "termsAcceptance": "我接受",
+      "termsLink": "持卡人条款和条件"
+    }
+  },
+  "help": {
+    "title": "帮助与支持",
+    "keyFeatures": "主要功能",
+    "footerText": "如需更详细的信息，请查阅我们的文档。"
+  },
+  "ui": {
+    "info": "信息",
+    "switchTheme": "切换主题"
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Shield, Globe, Clock } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface FeatureCard {
   icon: React.ElementType;
@@ -7,25 +8,27 @@ interface FeatureCard {
   description: string;
 }
 
-const features: FeatureCard[] = [
-  {
-    icon: Shield,
-    title: "Secure Access",
-    description: "Bank-grade security protecting your virtual card details",
-  },
-  {
-    icon: Globe,
-    title: "Global Acceptance",
-    description: "Use your virtual card anywhere Mastercard is accepted",
-  },
-  {
-    icon: Clock,
-    title: "Real-time Updates",
-    description: "Track transactions and balance updates instantly",
-  },
-];
-
 export const FeatureCards: React.FC = () => {
+  const t = useTranslations("claimsWalletMax.features");
+
+  const features: FeatureCard[] = [
+    {
+      icon: Shield,
+      title: t("secure.title"),
+      description: t("secure.description"),
+    },
+    {
+      icon: Globe,
+      title: t("global.title"),
+      description: t("global.description"),
+    },
+    {
+      icon: Clock,
+      title: t("realtime.title"),
+      description: t("realtime.description"),
+    },
+  ];
+
   return (
     <div className="max-w-5xl mx-auto">
       <div className="grid md:grid-cols-3 gap-8">

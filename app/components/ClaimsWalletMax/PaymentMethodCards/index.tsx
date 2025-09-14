@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import {
   CreditCard,
   Landmark,
@@ -26,40 +27,42 @@ interface PaymentMethodCardsProps {
 export const PaymentMethodCards: React.FC<PaymentMethodCardsProps> = ({
   onSelectPaymentMethod,
 }) => {
+  const t = useTranslations("claimsWalletMax.paymentMethods");
+
   const paymentMethods: PaymentMethod[] = [
     {
       id: "virtual-card",
-      name: "Virtual Card",
-      description: "Instant access to funds with Mastercard",
+      name: t("virtualCard.name"),
+      description: t("virtualCard.description"),
       icon: CreditCard,
-      timeframe: "Instant",
+      timeframe: t("virtualCard.timeframe"),
       priority: 1,
       color: "from-blue-600 to-indigo-600",
     },
     {
       id: "direct-card",
-      name: "Direct to Visa/Mastercard",
-      description: "Send money to your existing credit or debit card",
+      name: t("directCard.name"),
+      description: t("directCard.description"),
       icon: CreditCard,
-      timeframe: "10-30 minutes",
+      timeframe: t("directCard.timeframe"),
       priority: 2,
       color: "from-green-600 to-emerald-600",
     },
     {
       id: "ach",
-      name: "ACH to Bank",
-      description: "Transfer directly to your bank account",
+      name: t("ach.name"),
+      description: t("ach.description"),
       icon: Landmark,
-      timeframe: "1-3 business days",
+      timeframe: t("ach.timeframe"),
       priority: 3,
       color: "from-purple-600 to-violet-600",
     },
     {
       id: "check",
-      name: "eCheck",
-      description: "Traditional check sent to your mailing address",
+      name: t("check.name"),
+      description: t("check.description"),
       icon: MailCheck,
-      timeframe: "5-7 business days",
+      timeframe: t("check.timeframe"),
       priority: 4,
       color: "from-amber-600 to-orange-600",
     },

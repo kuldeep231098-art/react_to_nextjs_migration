@@ -5,14 +5,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { paymentSolutionsCategories } from "@/app/data/navigation/paymentSolutions";
+import { useTranslations } from "next-intl";
+import { createPaymentSolutionsCategories } from "@/app/data/navigation/paymentSolutions";
 import ThemeToggle from "../../ui/ThemeToggle";
 import LanguageSwitcher from "../../ui/LanguageSwitcher";
 
 export function Header() {
+  const t = useTranslations("header");
   const [isPaymentSolutionsOpen, setIsPaymentSolutionsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileCategory, setMobileCategory] = useState<string | null>(null);
+
+  // Get localized payment solutions data
+  const paymentSolutionsCategories = createPaymentSolutionsCategories(t);
 
   const handleMobileCategory = (category: string) => {
     setMobileCategory(mobileCategory === category ? null : category);
@@ -53,7 +58,7 @@ export function Header() {
                   }
                   className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 flex items-center gap-1"
                 >
-                  Payment Solutions
+                  {t("menu.payment_solutions")}
                   <ChevronDown className="h-4 w-4" />
                 </button>
 
@@ -117,7 +122,7 @@ export function Header() {
                 href="/rfp"
                 className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               >
-                FAQs
+                {t("menu.faqs")}
               </Link>
             </div>
           </div>
@@ -153,7 +158,7 @@ export function Header() {
               <div className="p-4 space-y-6">
                 <div className="space-y-2">
                   <div className="font-medium text-sm text-gray-600 dark:text-gray-400">
-                    PAYMENT SOLUTIONS
+                    {t("menu.payment_solutions").toUpperCase()}
                   </div>
 
                   {paymentSolutionsCategories.map((category, idx) => (
@@ -217,9 +222,9 @@ export function Header() {
                     href="/rfp"
                     className="block px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
                   >
-                    <div className="font-medium">FAQs</div>
+                    <div className="font-medium">{t("faq.title")}</div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">
-                      Frequently Asked Questions
+                      {t("faq.description")}
                     </div>
                   </Link>
                 </div>

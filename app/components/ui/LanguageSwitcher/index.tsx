@@ -2,11 +2,8 @@
 
 import { useState } from "react";
 import { Globe } from "lucide-react";
-
-interface Language {
-  code: string;
-  name: string;
-}
+import { useRouter, usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 
 const languages = [
   { code: "en", name: "English" },
@@ -19,11 +16,22 @@ const languages = [
 
 export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLang] = useState("en");
+  const router = useRouter();
+  const locale = useLocale();
+  console.log(33333, locale);
+  const pathname = usePathname();
+
+  // Extract current locale from pathname
+  const currentLocale = pathname.split("/")[1] || "en";
+  const currentLanguage = languages.find((lang) => lang.code === currentLocale);
 
   const handleLanguageChange = (langCode: string) => {
-    // TODO: Language switching will be implemented later
-    localStorage.setItem("preferredLanguage", langCode);
+    // Replace the locale in the current path
+    const segments = pathname.split("/");
+    segments[1] = langCode;
+    const newPath = segments.join("/");
+
+    router.push(newPath);
     setIsOpen(false);
   };
 
@@ -35,9 +43,7 @@ export default function LanguageSwitcher() {
         className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
       >
         <Globe className="h-4 w-4" />
-        <span>
-          {languages.find((l) => l.code === currentLang)?.name || "English"}
-        </span>
+        <span>{currentLanguage?.name || "English"}</span>
       </button>
 
       {isOpen && (
@@ -47,7 +53,7 @@ export default function LanguageSwitcher() {
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
               className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-800 ${
-                currentLang === lang.code
+                currentLocale === lang.code
                   ? "text-blue-600 dark:text-blue-400"
                   : "text-gray-600 dark:text-gray-400"
               }`}

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Wallet, RefreshCw, CheckCircle2, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface ClaimsWalletCardPlusProps {
   balance: number;
@@ -15,6 +16,8 @@ export function ClaimsWalletCardPlus({
   onRefresh = () => {},
   className = "",
 }: ClaimsWalletCardPlusProps) {
+  const t = useTranslations("claimsWalletMax.cardPlus");
+
   return (
     <motion.div
       className={`bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 rounded-xl shadow-xl p-7 text-white relative overflow-hidden ${className}`}
@@ -27,9 +30,11 @@ export function ClaimsWalletCardPlus({
           <Wallet className="h-10 w-10" />
           <div>
             <h2 className="text-3xl font-bold text-transparent bg-gradient-to-r from-[#00adee] to-[#4827D0] dark:from-[#40c9ff] dark:to-[#6a5cff] bg-clip-text">
-              Your Claims Wallet
+              {t("title")}
             </h2>
-            <p className="text-white/80">Claim #{claimNumber}</p>
+            <p className="text-white/80">
+              {t("claimNumber", { number: claimNumber })}
+            </p>
           </div>
         </div>
         <button
@@ -37,18 +42,20 @@ export function ClaimsWalletCardPlus({
           className="px-6 py-3 bg-white/20 hover:bg-white/30 dark:bg-white/10 dark:hover:bg-white/20 rounded-lg transition-colors font-medium flex items-center gap-2 cursor-pointer"
         >
           <RefreshCw className="h-5 w-5" />
-          <span>Refresh</span>
+          <span>{t("refresh")}</span>
         </button>
       </div>
 
       <div className="flex flex-col items-center justify-center py-6">
-        <div className="text-white/80 text-lg mb-2">Available Balance</div>
+        <div className="text-white/80 text-lg mb-2">
+          {t("availableBalance")}
+        </div>
         <div className="text-6xl font-bold mb-3">
           ${balance.toLocaleString()}
         </div>
         <div className="text-white/70 flex items-center gap-2">
           <CheckCircle2 className="h-5 w-5" />
-          <span>Funds ready for immediate use</span>
+          <span>{t("fundsReady")}</span>
         </div>
       </div>
 

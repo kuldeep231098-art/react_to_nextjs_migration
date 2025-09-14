@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 import {
   Shield,
@@ -75,13 +76,14 @@ import { HelpSidebarBase } from "../help/HelpSidebarBase/index";
 
 const validateTransaction = (
   amount: number,
-  balance: number
+  balance: number,
+  t: (key: string) => string
 ): TransactionValidation => {
   if (isNaN(amount) || amount <= 0) {
-    return { isValid: false, error: "Please enter a valid amount" };
+    return { isValid: false, error: t("validation.invalidAmount") };
   }
   if (amount > balance) {
-    return { isValid: false, error: "Insufficient balance" };
+    return { isValid: false, error: t("validation.insufficientBalance") };
   }
   return { isValid: true };
 };
@@ -89,14 +91,18 @@ const validateTransaction = (
 const createTransaction = (
   amount: number,
   method: PaymentMethod,
-  type: TransactionType
+  type: TransactionType,
+  t: (key: string) => string
 ): Transaction => {
+  const transactionTypeText =
+    type === TransactionType.WITHDRAWAL
+      ? t("transactions.withdrawal")
+      : t("transactions.deposit");
+
   return {
     id: `tx-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
     date: new Date().toISOString(),
-    description: `${
-      type === TransactionType.WITHDRAWAL ? "Withdrawal" : "Deposit"
-    } via ${method}`,
+    description: `${transactionTypeText} via ${method}`,
     amount:
       type === TransactionType.WITHDRAWAL
         ? -Math.abs(amount)
@@ -175,6 +181,7 @@ const processTransaction = async (
 };
 
 export function ClaimsWalletMax() {
+  const t = useTranslations("claimsWalletMax");
   const [walletData, setWalletData] =
     useState<WalletData>(getInitialWalletData);
   const [showOTPModal, setShowOTPModal] = useState(false);
@@ -200,37 +207,37 @@ export function ClaimsWalletMax() {
   const paymentMethods = [
     {
       id: "virtual-card",
-      name: "Virtual Card",
-      description: "Instant access to funds with Mastercard",
+      name: t("paymentMethods.virtualCard.name"),
+      description: t("paymentMethods.virtualCard.description"),
       icon: CreditCard,
-      timeframe: "Instant",
+      timeframe: t("paymentMethods.virtualCard.timeframe"),
       priority: 1,
       color: "from-blue-600 to-indigo-600",
     },
     {
       id: "direct-card",
-      name: "Direct to Visa/Mastercard",
-      description: "Send money to your existing credit or debit card",
+      name: t("paymentMethods.directCard.name"),
+      description: t("paymentMethods.directCard.description"),
       icon: CreditCard,
-      timeframe: "10-30 minutes",
+      timeframe: t("paymentMethods.directCard.timeframe"),
       priority: 2,
       color: "from-green-600 to-emerald-600",
     },
     {
       id: "ach",
-      name: "ACH to Bank",
-      description: "Transfer directly to your bank account",
+      name: t("paymentMethods.ach.name"),
+      description: t("paymentMethods.ach.description"),
       icon: Landmark,
-      timeframe: "1-3 business days",
+      timeframe: t("paymentMethods.ach.timeframe"),
       priority: 3,
       color: "from-purple-600 to-violet-600",
     },
     {
       id: "check",
-      name: "eCheck",
-      description: "Traditional check sent to your mailing address",
+      name: t("paymentMethods.check.name"),
+      description: t("paymentMethods.check.description"),
       icon: MailCheck,
-      timeframe: "5-7 business days",
+      timeframe: t("paymentMethods.check.timeframe"),
       priority: 4,
       color: "from-amber-600 to-orange-600",
     },
@@ -242,7 +249,7 @@ export function ClaimsWalletMax() {
 
   const handleVerifyOTP = () => {
     if (otp.length !== 6) {
-      setOtpError("Please enter a 6-digit code");
+      setOtpError(t("otp.errors.invalidLength"));
       return;
     }
 
@@ -251,7 +258,7 @@ export function ClaimsWalletMax() {
       setOtp("");
       setOtpError("");
     } else {
-      setOtpError("Invalid verification code");
+      setOtpError(t("otp.errors.invalidCode"));
     }
   };
 
@@ -265,7 +272,7 @@ export function ClaimsWalletMax() {
 
   const handleTransfer = async () => {
     const amount = parseFloat(transferAmount);
-    const validation = validateTransaction(amount, walletData.balance);
+    const validation = validateTransaction(amount, walletData.balance, t);
 
     if (!validation.isValid) {
       return;
@@ -280,7 +287,8 @@ export function ClaimsWalletMax() {
       const newTransaction = createTransaction(
         amount,
         method,
-        TransactionType.WITHDRAWAL
+        TransactionType.WITHDRAWAL,
+        t
       );
 
       await processTransaction(walletData, newTransaction, setWalletData);
@@ -328,11 +336,10 @@ export function ClaimsWalletMax() {
               />
             </div>
             <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-              Claims Wallet Max
+              {t("title")}
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-              Access your funds instantly and choose how you want to receive
-              your payment. Enhanced features with maximum flexibility.
+              {t("description")}
             </p>
           </div>
 
@@ -390,7 +397,7 @@ export function ClaimsWalletMax() {
                         <CreditCard className="h-6 w-6" />
                       </div>
                       <h3 className="text-xl font-bold dark:text-white">
-                        Virtual Mastercard
+                        {t("paymentMethods.virtualCard.name")}
                       </h3>
                       <div className="ml-auto">
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
@@ -399,12 +406,12 @@ export function ClaimsWalletMax() {
                       </div>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 mb-2">
-                      Get instant access to your funds with a virtual Mastercard
-                      that can be used anywhere online or added to your mobile
-                      wallet.
+                      {t("paymentMethods.virtualCard.description")}
                     </p>
                     <div className="flex items-center text-blue-600 dark:text-blue-400">
-                      <span className="font-medium">Select Virtual Card</span>
+                      <span className="font-medium">
+                        {t("paymentMethods.virtualCard.select")}
+                      </span>
                       <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
@@ -464,7 +471,7 @@ export function ClaimsWalletMax() {
                         {method.timeframe}
                       </span>
                       <span className="text-blue-600 dark:text-blue-400 flex items-center text-sm">
-                        <span>Select</span>
+                        <span>{t("common.select")}</span>
                         <ArrowRight className="h-3 w-3 ml-1 transition-transform group-hover:translate-x-1" />
                       </span>
                     </div>
@@ -480,26 +487,26 @@ export function ClaimsWalletMax() {
           <div className="max-w-5xl mx-auto mb-16">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
               <h2 className="text-2xl font-bold mb-6 dark:text-white">
-                Recent Transactions
+                {t("transactionTable.title")}
               </h2>{" "}
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200 dark:border-gray-700">
                       <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                        Date
+                        {t("transactionTable.headers.date")}
                       </th>
                       <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                        Description
+                        {t("transactionTable.headers.description")}
                       </th>
                       <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                        Amount
+                        {t("transactionTable.headers.amount")}
                       </th>
                       <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                        Status
+                        {t("transactionTable.headers.status")}
                       </th>
                       <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                        Method
+                        {t("transactionTable.headers.method")}
                       </th>
                     </tr>
                   </thead>
@@ -510,7 +517,7 @@ export function ClaimsWalletMax() {
                           colSpan={5}
                           className="py-4 px-4 text-center text-gray-500 dark:text-gray-400"
                         >
-                          No transactions to display
+                          {t("transactionTable.noTransactions")}
                         </td>
                       </tr>
                     ) : (
@@ -538,7 +545,9 @@ export function ClaimsWalletMax() {
                               </span>
                               {transaction.reference && (
                                 <span className="text-xs text-gray-500 dark:text-gray-400">
-                                  Ref: {transaction.reference}
+                                  {t("transactionTable.reference", {
+                                    ref: transaction.reference,
+                                  })}
                                 </span>
                               )}
                             </div>
@@ -611,10 +620,10 @@ export function ClaimsWalletMax() {
                   <Shield className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2 dark:text-white">
-                  Secure Access
+                  {t("features.secure.title")}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Bank-grade security protecting your virtual card details
+                  {t("features.secure.description")}
                 </p>
               </div>
 
@@ -623,10 +632,10 @@ export function ClaimsWalletMax() {
                   <Globe className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2 dark:text-white">
-                  Global Acceptance
+                  {t("features.global.title")}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Use your virtual card anywhere Mastercard is accepted
+                  {t("features.global.description")}
                 </p>
               </div>
 
@@ -635,10 +644,10 @@ export function ClaimsWalletMax() {
                   <Clock className="h-6 w-6" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2 dark:text-white">
-                  Real-time Updates
+                  {t("features.realtime.title")}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400">
-                  Track transactions and balance updates instantly
+                  {t("features.realtime.description")}
                 </p>
               </div>
             </div>
@@ -780,8 +789,10 @@ export function ClaimsWalletMax() {
                       <Wallet className="h-6 w-6 text-blue-600" />
                       <h3 className="text-xl font-bold  dark:text-gray-100">
                         {transferInProgress
-                          ? "Processing..."
-                          : `Transfer to ${modalPaymentMethod}`}
+                          ? t("transferModal.processing")
+                          : t("transferModal.transferTo", {
+                              method: modalPaymentMethod,
+                            })}
                       </h3>
                     </div>
                     {!transferInProgress && (
@@ -811,8 +822,9 @@ export function ClaimsWalletMax() {
                         />
                       </div>
                       <p className="text-center text-gray-600 dark:text-gray-400">
-                        Transferring funds to your{" "}
-                        {modalPaymentMethod.toLowerCase()}...
+                        {t("transferModal.transferringFunds", {
+                          method: modalPaymentMethod.toLowerCase(),
+                        })}
                       </p>
                     </div>
                   ) : (
@@ -821,7 +833,7 @@ export function ClaimsWalletMax() {
                         <DollarSign className="h-10 w-10 text-blue-600 dark:text-blue-400 mr-3" />
                         <div>
                           <div className="text-sm text-gray-600 dark:text-gray-400">
-                            Available Balance
+                            {t("transferModal.availableBalance")}
                           </div>
                           <div className="text-xl font-bold dark:text-white">
                             ${walletData.balance.toLocaleString()}
@@ -831,7 +843,7 @@ export function ClaimsWalletMax() {
 
                       <div className="mb-6">
                         <label className="block text-sm font-medium mb-2 dark:text-white">
-                          Transfer Amount
+                          {t("transferModal.transferAmount")}
                         </label>
                         <div className="relative">
                           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">
@@ -854,33 +866,39 @@ export function ClaimsWalletMax() {
                         <div className="space-y-4 mb-6">
                           <div>
                             <label className="block text-sm font-medium mb-2 dark:text-white">
-                              Bank Name
+                              {t("transferModal.bankDetails.bankName")}
                             </label>
                             <input
                               type="text"
                               className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
-                              placeholder="Enter bank name"
+                              placeholder={t(
+                                "transferModal.bankDetails.bankNamePlaceholder"
+                              )}
                             />
                           </div>
                           <div className="grid grid-cols-2 gap-4">
                             <div>
                               <label className="block text-sm font-medium mb-2 dark:text-white">
-                                Routing Number
+                                {t("transferModal.bankDetails.routingNumber")}
                               </label>
                               <input
                                 type="text"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
-                                placeholder="9 digits"
+                                placeholder={t(
+                                  "transferModal.bankDetails.routingNumberPlaceholder"
+                                )}
                               />
                             </div>
                             <div>
                               <label className="block text-sm font-medium mb-2 dark:text-white">
-                                Account Number
+                                {t("transferModal.bankDetails.accountNumber")}
                               </label>
                               <input
                                 type="text"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
-                                placeholder="Account number"
+                                placeholder={t(
+                                  "transferModal.bankDetails.accountNumberPlaceholder"
+                                )}
                               />
                             </div>
                           </div>
@@ -891,33 +909,39 @@ export function ClaimsWalletMax() {
                         <div className="space-y-4 mb-6">
                           <div>
                             <label className="block text-sm font-medium mb-2 dark:text-white">
-                              Card Number
+                              {t("transferModal.cardDetails.cardNumber")}
                             </label>
                             <input
                               type="text"
                               className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
-                              placeholder="Card number"
+                              placeholder={t(
+                                "transferModal.cardDetails.cardNumberPlaceholder"
+                              )}
                             />
                           </div>
                           <div className="grid grid-cols-2 gap-4">
                             <div>
                               <label className="block text-sm font-medium mb-2 dark:text-white">
-                                Expiration Date
+                                {t("transferModal.cardDetails.expirationDate")}
                               </label>
                               <input
                                 type="text"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
-                                placeholder="MM/YY"
+                                placeholder={t(
+                                  "transferModal.cardDetails.expirationDatePlaceholder"
+                                )}
                               />
                             </div>
                             <div>
                               <label className="block text-sm font-medium mb-2 dark:text-white">
-                                Zip Code
+                                {t("transferModal.cardDetails.zipCode")}
                               </label>
                               <input
                                 type="text"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
-                                placeholder="Billing zip code"
+                                placeholder={t(
+                                  "transferModal.cardDetails.zipCodePlaceholder"
+                                )}
                               />
                             </div>
                           </div>
@@ -928,11 +952,13 @@ export function ClaimsWalletMax() {
                         <div className="space-y-4 mb-6">
                           <div>
                             <label className="block text-sm font-medium mb-2 dark:text-white">
-                              Mailing Address
+                              {t("transferModal.mailingAddress")}
                             </label>
                             <textarea
                               className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
-                              placeholder="Enter your mailing address"
+                              placeholder={t(
+                                "transferModal.mailingAddressPlaceholder"
+                              )}
                               rows={3}
                             />
                           </div>
@@ -944,17 +970,23 @@ export function ClaimsWalletMax() {
                           <Clock className="h-4 w-4" />
                           <span>
                             {modalPaymentMethod === paymentMethods[0].name
-                              ? "Available immediately"
+                              ? t(
+                                  "transferModal.paymentMethods.virtualCard.timeframe"
+                                )
                               : modalPaymentMethod === paymentMethods[1].name
-                              ? "Typically takes 10-30 minutes"
+                              ? t(
+                                  "transferModal.paymentMethods.directCard.timeframe"
+                                )
                               : modalPaymentMethod === paymentMethods[2].name
-                              ? "Processing time: 1-3 business days"
-                              : "Delivery time: 5-7 business days"}
+                              ? t("transferModal.paymentMethods.ach.timeframe")
+                              : t(
+                                  "transferModal.paymentMethods.check.timeframe"
+                                )}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
                           <Shield className="h-4 w-4" />
-                          <span>Secure, encrypted transfer</span>
+                          <span>{t("transferModal.secureTransfer")}</span>
                         </div>
                       </div>
 
@@ -974,7 +1006,7 @@ export function ClaimsWalletMax() {
                               : "bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:shadow-lg"
                           }`}
                       >
-                        <span>Transfer Funds</span>
+                        <span>{t("transferModal.transferFunds")}</span>
                         <ArrowRight className="h-5 w-5" />
                       </button>
                     </>
@@ -988,11 +1020,13 @@ export function ClaimsWalletMax() {
                     </div>
                   </div>
                   <h3 className="text-xl font-bold mb-2 dark:text-white">
-                    Transfer Successful!
+                    {t("transferModal.transferSuccess")}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">
-                    ${parseFloat(transferAmount).toFixed(2)} has been sent to
-                    your {modalPaymentMethod.toLowerCase()}.
+                    {t("transferModal.successMessage", {
+                      amount: parseFloat(transferAmount).toFixed(2),
+                      method: modalPaymentMethod.toLowerCase(),
+                    })}
                   </p>
                   <button
                     onClick={() => {
@@ -1002,7 +1036,7 @@ export function ClaimsWalletMax() {
                     }}
                     className="px-6 py-2 bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg transition-colors"
                   >
-                    Close
+                    {t("transferModal.close")}
                   </button>
                 </div>
               )}

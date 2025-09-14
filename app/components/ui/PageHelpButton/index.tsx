@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface PageHelpButtonProps {
   onClick: () => void;
@@ -13,6 +14,8 @@ export function PageHelpButton({
   isOpen,
   className = "",
 }: PageHelpButtonProps) {
+  const t = useTranslations("ui");
+
   return (
     <motion.button
       onClick={onClick}
@@ -47,7 +50,7 @@ export function PageHelpButton({
           },
         }}
       >
-        INFO
+        {t("info")}
       </motion.span>
 
       <motion.div

@@ -1,5 +1,6 @@
 import React from "react";
 import { KeyRound, X, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface OTPVerificationModalProps {
   isOpen: boolean;
@@ -22,6 +23,8 @@ export const OTPVerificationModal: React.FC<OTPVerificationModalProps> = ({
   acceptedTerms,
   onAcceptTermsChange,
 }) => {
+  const t = useTranslations("claimsWalletMax.otpModal");
+
   if (!isOpen) return null;
 
   return (
@@ -30,9 +33,7 @@ export const OTPVerificationModal: React.FC<OTPVerificationModalProps> = ({
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <KeyRound className="h-6 w-6 text-blue-600" />
-            <h3 className="text-xl font-bold dark:text-white">
-              Verify Identity
-            </h3>
+            <h3 className="text-xl font-bold dark:text-white">{t("title")}</h3>
           </div>
           <button
             onClick={onClose}
@@ -43,8 +44,7 @@ export const OTPVerificationModal: React.FC<OTPVerificationModalProps> = ({
         </div>
 
         <p className="text-gray-600 dark:text-gray-400 mb-6">
-          For your security, please enter the 6-digit verification code sent to
-          your registered phone number.
+          {t("description")}
         </p>
 
         <div className="space-y-4">
@@ -56,7 +56,7 @@ export const OTPVerificationModal: React.FC<OTPVerificationModalProps> = ({
                 const value = e.target.value.replace(/\D/g, "").slice(0, 6);
                 onOtpChange(value);
               }}
-              placeholder="Enter 6-digit code"
+              placeholder={t("placeholder")}
               className="w-full px-4 py-2 text-center text-2xl tracking-wider rounded-lg border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800"
               maxLength={6}
             />
@@ -76,13 +76,13 @@ export const OTPVerificationModal: React.FC<OTPVerificationModalProps> = ({
               cursor: acceptedTerms ? "pointer" : "not-allowed",
             }}
           >
-            Verify Code
+            {t("verifyButton")}
             <ArrowRight className="h-5 w-5" />
           </button>
 
           <div className="text-center">
             <button className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
-              Resend Code
+              {t("resendCode")}
             </button>
           </div>
         </div>
@@ -97,14 +97,14 @@ export const OTPVerificationModal: React.FC<OTPVerificationModalProps> = ({
               onChange={(e) => onAcceptTermsChange(e.target.checked)}
             />
             <label htmlFor="terms">
-              I accept the{" "}
+              {t("termsAcceptance")}{" "}
               <a
                 href="https://juicefin.com/wp-content/uploads/2024/10/CLL-09272024-001.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               >
-                Cardholder Terms & Conditions
+                {t("termsLink")}
               </a>
             </label>
           </div>

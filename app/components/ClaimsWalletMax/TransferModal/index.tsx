@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import {
   Wallet,
   DollarSign,
@@ -33,26 +34,28 @@ export const TransferModal: React.FC<TransferModalProps> = ({
   transferAmount,
   onTransferAmountChange,
 }) => {
+  const t = useTranslations("claimsWalletMax.transferModal");
+
   const paymentMethods = [
     {
       id: "virtual-card",
-      name: "Virtual Card",
-      timeframe: "Available immediately",
+      name: t("paymentMethods.virtualCard.name"),
+      timeframe: t("paymentMethods.virtualCard.timeframe"),
     },
     {
       id: "direct-card",
-      name: "Direct to Visa/Mastercard",
-      timeframe: "Typically takes 10-30 minutes",
+      name: t("paymentMethods.directCard.name"),
+      timeframe: t("paymentMethods.directCard.timeframe"),
     },
     {
       id: "ach",
-      name: "ACH to Bank",
-      timeframe: "Processing time: 1-3 business days",
+      name: t("paymentMethods.ach.name"),
+      timeframe: t("paymentMethods.ach.timeframe"),
     },
     {
       id: "check",
-      name: "eCheck",
-      timeframe: "Delivery time: 5-7 business days",
+      name: t("paymentMethods.check.name"),
+      timeframe: t("paymentMethods.check.timeframe"),
     },
   ];
 
@@ -87,8 +90,8 @@ export const TransferModal: React.FC<TransferModalProps> = ({
                 <Wallet className="h-6 w-6 text-blue-600" />
                 <h3 className="text-xl font-bold dark:text-gray-100">
                   {transferInProgress
-                    ? "Processing..."
-                    : `Transfer to ${paymentMethod}`}
+                    ? t("processing")
+                    : t("transferTo", { method: paymentMethod })}
                 </h3>
               </div>
               {!transferInProgress && (
@@ -115,7 +118,9 @@ export const TransferModal: React.FC<TransferModalProps> = ({
                   />
                 </div>
                 <p className="text-center text-gray-600 dark:text-gray-400">
-                  Transferring funds to your {paymentMethod.toLowerCase()}...
+                  {t("transferringFunds", {
+                    method: paymentMethod.toLowerCase(),
+                  })}
                 </p>
               </div>
             ) : (
@@ -124,7 +129,7 @@ export const TransferModal: React.FC<TransferModalProps> = ({
                   <DollarSign className="h-10 w-10 text-blue-600 dark:text-blue-400 mr-3" />
                   <div>
                     <div className="text-sm text-gray-600 dark:text-gray-400">
-                      Available Balance
+                      {t("availableBalance")}
                     </div>
                     <div className="text-xl font-bold dark:text-white">
                       ${walletBalance.toLocaleString()}
@@ -134,7 +139,7 @@ export const TransferModal: React.FC<TransferModalProps> = ({
 
                 <div className="mb-6">
                   <label className="block text-sm font-medium mb-2 dark:text-white">
-                    Transfer Amount
+                    {t("transferAmount")}
                   </label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400">

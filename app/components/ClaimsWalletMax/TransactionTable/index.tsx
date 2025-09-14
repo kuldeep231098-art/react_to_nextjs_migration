@@ -1,5 +1,6 @@
 import React from "react";
 import { CreditCard, Landmark, MailCheck } from "lucide-react";
+import { useTranslations } from "next-intl";
 import {
   Transaction,
   TransactionStatus,
@@ -14,29 +15,29 @@ interface TransactionTableProps {
 export const TransactionTable: React.FC<TransactionTableProps> = ({
   transactions,
 }) => {
+  const t = useTranslations("claimsWalletMax.transactionTable");
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-      <h2 className="text-2xl font-bold mb-6 dark:text-white">
-        Recent Transactions
-      </h2>
+      <h2 className="text-2xl font-bold mb-6 dark:text-white">{t("title")}</h2>
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b border-gray-200 dark:border-gray-700">
               <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                Date
+                {t("headers.date")}
               </th>
               <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                Description
+                {t("headers.description")}
               </th>
               <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                Amount
+                {t("headers.amount")}
               </th>
               <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                Status
+                {t("headers.status")}
               </th>
               <th className="text-left py-4 px-4 text-gray-900 dark:text-gray-100">
-                Method
+                {t("headers.method")}
               </th>
             </tr>
           </thead>
@@ -47,7 +48,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
                   colSpan={5}
                   className="py-4 px-4 text-center text-gray-500 dark:text-gray-400"
                 >
-                  No transactions to display
+                  {t("noTransactions")}
                 </td>
               </tr>
             ) : (
@@ -72,7 +73,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
                       </span>
                       {transaction.reference && (
                         <span className="text-xs text-gray-500 dark:text-gray-400">
-                          Ref: {transaction.reference}
+                          {t("reference", { ref: transaction.reference })}
                         </span>
                       )}
                     </div>

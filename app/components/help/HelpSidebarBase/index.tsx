@@ -10,12 +10,14 @@ import { ResizeHandle } from "../ResizeHandle";
 import { SidebarHeader } from "../SidebarHeader";
 import { SidebarContent } from "../SidebarContent";
 import { SidebarFooter } from "../SidebarFooter";
+import { useTranslations } from "next-intl";
 
 export function HelpSidebarBase({
   isOpen,
   onClose,
   content,
 }: HelpSidebarProps) {
+  const t = useTranslations("help");
   const [width, setWidth] = useState<number>(SIDEBAR_DIMENSIONS.DEFAULT_WIDTH);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -116,7 +118,7 @@ export function HelpSidebarBase({
             key="sidebar"
           >
             <ResizeHandle onMouseDown={handleMouseDown} />
-            <SidebarHeader onClose={onClose} />
+            <SidebarHeader onClose={onClose} title={t("title")} />
             <SidebarContent content={content} />
             <SidebarFooter />
           </motion.div>
