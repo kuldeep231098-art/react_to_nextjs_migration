@@ -6,12 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { paymentSolutionsCategories } from "@/app/data/navigation/paymentSolutions";
-import { useTranslation } from "react-i18next";
 import ThemeToggle from "../../ui/ThemeToggle";
 import LanguageSwitcher from "../../ui/LanguageSwitcher";
 
 export function Header() {
-  const { t } = useTranslation();
   const [isPaymentSolutionsOpen, setIsPaymentSolutionsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileCategory, setMobileCategory] = useState<string | null>(null);
@@ -21,7 +19,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-[#f9fafb]/80 dark:bg-gray-950/80 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-[#f9fafb]/80 dark:bg-gray-950/80 backdrop-blur-sm ">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex-none">
@@ -55,7 +53,7 @@ export function Header() {
                   }
                   className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 flex items-center gap-1"
                 >
-                  {t("header.menu.payment_solutions")}
+                  Payment Solutions
                   <ChevronDown className="h-4 w-4" />
                 </button>
 
